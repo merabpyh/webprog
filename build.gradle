@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()       
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+	classpath("com.netflix.nebula:gradle-ospackage-plugin:4.1.0")
+	classpath("com.trigonic:gradle-rpm-plugin:1.4")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'nebula.ospackage'
+
+
+jar {
+    baseName = 'webprog'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+ospackage {
+    packageName = 'webprog'
+    version = '0.1.2'
+    os = LINUX
+
+    postInstall file('./package/rpm/postinstall')
+    preUninstall file('./package/rpm/preuninstall')
+
+    directory('/opt/webprog/app', 755)
+    directory('/opt/webprog/bin', 755)
+
+    from('build/libs') {
+	exclude '*.jar.original'
+	into '/opt/webprog/app/'
+	fileMode 0755
+    }
+
+    from('package/systemd/webprog.sh') {
+        into '/opt/webprog/bin/'
+        fileMode 0755
+    }
+
+    from('package/systemd/webprog.service') {
+	addParentDirs = false
+        into '/etc/systemd/system/'
+        fileMode 0755
+    }
+}
+
+buildRpm {
+        requires('java-1.7.0-openjdk')
+	
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.2.1'
+}
