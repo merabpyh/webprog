@@ -1,7 +1,9 @@
 # webprog
+
 ## requires
 - centos7+
 - java-1.7.0-openjdk-devel
+
 ## usage
 - 0) build rpm with "build.sh"
 - 1) install rpm 
