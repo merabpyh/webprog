@@ -14,4 +14,4 @@ use systemctl XXX webprog.service after installation
 
 
 ## known issues
-java logs placed in the systemd journal, not in /var/log/webprog
+webprog.service contains unnecessary log code
