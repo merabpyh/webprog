@@ -30,24 +30,18 @@ dependencies {
 
 ospackage {
     packageName = 'webprog'
-    version = '0.1.2'
+    version = '0.3'
     os = LINUX
 
     postInstall file('./package/rpm/postinstall')
     preUninstall file('./package/rpm/preuninstall')
 
     directory('/opt/webprog/app', 755)
-    directory('/opt/webprog/bin', 755)
 
     from('build/libs') {
 	exclude '*.jar.original'
 	into '/opt/webprog/app/'
 	fileMode 0755
-    }
-
-    from('package/systemd/webprog.sh') {
-        into '/opt/webprog/bin/'
-        fileMode 0755
     }
 
     from('package/systemd/webprog.service') {
