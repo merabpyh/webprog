@@ -7,7 +7,6 @@ Type=forking
 PIDFile=/var/run/webprog/webprog.pid
 
 ExecStart=/opt/webprog/bin/webprog.sh start
-ExecStop=/opt/webprog/bin/webprog.sh stop
 
 [Install]
 WantedBy=multi-user.target
