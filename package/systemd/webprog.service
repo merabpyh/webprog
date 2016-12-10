@@ -2,9 +2,7 @@
 Description=webprog is a test web service from R.O.
 
 [Service]
-
 ExecStart=/usr/bin/java -jar /opt/webprog/app/webprog.jar >/var/log/webprog/webprog.log 2>/var/log/webprog/webprog-errors.log </dev/null &
-
 RemainAfterExit=yes
 
 [Install]

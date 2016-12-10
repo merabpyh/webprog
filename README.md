@@ -10,4 +10,8 @@
 -  http://ServerIP:8080/ping or http://ServerIP:8080/date
 
 ## note
-use sysyemctl XXX webprog.service after installation
+use systemctl XXX webprog.service after installation
+
+
+## known issues
+java logs placed in the systemd journal, not in /var/log/webprog
