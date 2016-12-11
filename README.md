@@ -10,8 +10,9 @@
 -  http://ServerIP:8080/ping or http://ServerIP:8080/date
 
 ## note
-use systemctl XXX webprog.service after installation
 
+sustemd controls pid's
 
-## known issues
-webprog.service contains unnecessary log code
+systemd controls logging
+
+use "systemctl start|stop|restart|status" webprog.service after installation
