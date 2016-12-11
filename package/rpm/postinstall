@@ -1,9 +1,4 @@
 #!/bin/bash
 
-LOG_DIR=/var/log/webprog
-RUN_DIR=/var/run/webprog
-
-mkdir ${LOG_DIR} ${RUN_DIR}
-touch ${RUN_DIR}/webprog.pid ${LOG_DIR}/webprog.log ${LOG_DIR}/webprog-errors.log
  systemctl start webprog.service
   systemctl enable webprog.service
