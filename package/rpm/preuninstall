@@ -1,5 +1,4 @@
 #!/bin/bash
 
-rm -rf /var/run/webprog /var/log/webprog
  systemctl stop webprog.service
   systemctl disable webprog.service
