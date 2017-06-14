@@ -11,7 +11,7 @@
 
 ## note
 
-sustemd controls pid's
+systemd controls pid's
 
 systemd controls logging
 
