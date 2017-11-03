@@ -23,8 +23,10 @@ use "systemctl start|stop|restart|status webprog.service" after installation
 - http://ServerIP:8080/ping or http://ServerIP:8080/date
 
 ## note #2
+
 Docker based web service, based on:
 - jwilder/nginx-proxy:alpine - https://github.com/jwilder/nginx-proxy
 - java:alpine
+
 Уou can use any number of backends.
 The proxy will automatically add them upstream, or will remove from there.
