@@ -14,6 +14,7 @@ apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'nebula.ospackage'
 
+version: '0.0.1c'
 
 jar {
     baseName = 'webprog'
@@ -30,7 +31,6 @@ dependencies {
 
 ospackage {
     packageName = 'webprog'
-    version = '0.1.1'
     os = LINUX
 
     postInstall file('./package/rpm/postinstall')
