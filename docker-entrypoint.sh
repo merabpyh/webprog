@@ -1,3 +1,3 @@
 #!/bin/sh
 
-java -jar /tmp/webprog.jar 
+java -jar /tmp/*.jar 
